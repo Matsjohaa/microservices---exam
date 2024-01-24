@@ -1,4 +1,4 @@
-package no.kristiania.productservice.entity;
+package no.kristiania.orderservice.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,20 +6,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
-@Table(name = "products")
+@Table(name = "order_line_items")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-public class Product {
+public class OrderLineItems {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String productName;
-    private String productDescription;
-    private Double productPrice;
-    private Integer productStock;
-
+    private Long productId;
+    private Integer quantity;
 }
+
+
