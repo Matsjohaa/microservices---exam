@@ -11,9 +11,5 @@ import org.springframework.stereotype.Component;
 public class EventPublisher {
 
 
-    private RabbitTemplate rabbitTemplate;
 
-    public void publishOrderEvent(OrderEvent orderEvent, String routingKey) {
-        rabbitTemplate.convertAndSend("orderExchange", routingKey, orderEvent);
-    }
 }

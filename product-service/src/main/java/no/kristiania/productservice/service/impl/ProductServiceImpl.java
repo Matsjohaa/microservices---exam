@@ -60,4 +60,10 @@ public class ProductServiceImpl  implements ProductService{
 
         return products;
     }
+
+    public void decreaseQuantity(Long productId, Integer quantity) {
+        Product product = productRepository.findById(productId).orElseThrow();
+        product.setProductStock(product.getProductStock() - quantity);
+        productRepository.save(product);
+    }
 }
