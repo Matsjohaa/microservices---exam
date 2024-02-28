@@ -16,10 +16,10 @@ public class UserController {
 
 
     @PostMapping
-    public ResponseEntity<UserDto> saveUser(){
-        UserDto userDto = userService.saveUser();
+    public ResponseEntity<UserDto> saveUser(@RequestBody UserDto userDto){
+        UserDto savedUserDto = userService.saveUser(userDto);
 
-        return new ResponseEntity<>(userDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedUserDto, HttpStatus.CREATED);
     }
 
     @GetMapping(params = "username")
