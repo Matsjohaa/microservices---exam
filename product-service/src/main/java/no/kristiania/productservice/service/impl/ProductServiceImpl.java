@@ -5,6 +5,8 @@ import no.kristiania.productservice.dto.ProductDto;
 import no.kristiania.productservice.entity.Product;
 import no.kristiania.productservice.repository.ProductRepository;
 import no.kristiania.productservice.service.ProductService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductServiceImpl  implements ProductService{
     private ProductRepository productRepository;
+
+
 
     private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
 
@@ -41,6 +45,8 @@ public class ProductServiceImpl  implements ProductService{
 
         return savedProductDto;
     }
+
+
 
     @Override
     public ProductDto getProduct(Long productId) {

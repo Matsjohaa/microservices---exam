@@ -1,6 +1,8 @@
-#Overview
+# Overview
 This is an application that is run on a h2 database, therefore when starting the project, the databases will be empty, and will need a post to each databbase through eg. postman
 
+
+Here are some examples of what you can 
 
 - product: POST http://localhost:8080/api/products
 ```
@@ -49,3 +51,8 @@ This is an application that is run on a h2 database, therefore when starting the
 }
 
 ```
+The rabbitMQ queue should decrease the stock of the product in the product service, by the quanity a user orders.
+
+I had some problems with rabbitMQ. For some reason, the Queues only sometimes go through, and they usally take some time to do so. I have tried to look into this, but can't find a solution sadly.
+
+![img.png](img/img.png)

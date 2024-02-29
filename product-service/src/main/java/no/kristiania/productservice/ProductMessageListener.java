@@ -23,7 +23,6 @@ public class ProductMessageListener {
 
     private final ProductService productService;
 
-
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "productQueue", durable = "true"),
             exchange = @Exchange(value = "orderExchange", type = ExchangeTypes.TOPIC),
@@ -32,6 +31,5 @@ public class ProductMessageListener {
     public void onOrderPlaced(OrderEvent event) {
         productService.decreaseQuantity(event.getProductId(), event.getQuantity());
     }
-
 
 }
