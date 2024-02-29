@@ -56,8 +56,9 @@ then, when doing a GET to the same adress, it should look like this:
 ```
 The rabbitMQ queue should decrease the stock of the product in the product service, by the quanity a user orders.
 
-I had some problems with rabbitMQ. For some reason, the Queues only sometimes go through, and they usally take some time to do so. I have tried to look into this, but can't find a solution sadly.
 
 ![img.png](img/img3.png)
 
 here is a GET request to http://localhost:8080/api/products, after the POST to orders. As you can see, two has been reduced from the stock of the first product, and one of the second. This matches what was ordered in the POST to the orders service.
+
+![img.png](img/img4.png)
