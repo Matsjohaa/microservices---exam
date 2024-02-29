@@ -1,7 +1,8 @@
 package no.kristiania.productservice;
 
 import lombok.AllArgsConstructor;
-import no.kristiania.orderservice.entity.OrderEvent;
+
+import no.kristiania.productservice.entity.OrderEvent;
 import no.kristiania.productservice.entity.Product;
 import no.kristiania.productservice.repository.ProductRepository;
 import no.kristiania.productservice.service.ProductService;

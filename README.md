@@ -4,18 +4,21 @@ This is an application that is run on a h2 database, therefore when starting the
 
 - product: POST http://localhost:8080/api/products
 ```
-{
-"productName": "iphone 15",
-"productDescription": "a newer iphone",
-"productPrice": 9990,
-"productStock": 200
-},
-{
-"productName": "playstation 5",
-"productDescription": "a device for playing games",
-"productPrice": 5000,
-"productStock": 57
-}
+
+  {
+    "productName": "iphone 15",
+    "productDescription": "a newer iphone",
+    "productPrice": 9990,
+    "productStock": 200
+  }
+```
+```
+  {
+    "productName": "playstation 5",
+    "productDescription": "a device for playing games",
+    "productPrice": 5000,
+    "productStock": 57
+  }
 ```
 
 - user: POST http://localhost:8081/api/users
