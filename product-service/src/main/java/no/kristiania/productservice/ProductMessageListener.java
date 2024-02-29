@@ -18,15 +18,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-@Configuration
+
 public class ProductMessageListener {
 
     private final ProductService productService;
 
-    @Bean //MessagingConfig
-    public Jackson2JsonMessageConverter jsonMessageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }
 
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "productQueue", durable = "true"),
