@@ -8,3 +8,14 @@
 "productStock": 200
 }
 ```
+
+-user: POST http://localhost:8081/api/users
+
+```
+{
+    "userName": "newUser",
+    "email": "newUser@example.com",
+    "password": "securePassword",
+    "role": "User"
+}
+```
