@@ -25,10 +25,12 @@ public class OrderServiceImpl implements OrderService {
 
         Order savedOrder = orderRepository.save(order);
 
-        orderDto.getOrderLineItems().forEach(item -> {
-            OrderEvent event = new OrderEvent(item.getProductId(), item.getQuantity());
-            rabbitTemplate.convertAndSend("orderExchange", "order.placed", event);
-        });
+        if(orderDto.getOrderLineItems() != null) {
+            orderDto.getOrderLineItems().forEach(item -> {
+                OrderEvent event = new OrderEvent(item.getProductId(), item.getQuantity());
+                rabbitTemplate.convertAndSend("orderExchange", "order.placed", event);
+            });
+        }
 
         OrderDto savedOrderDto = new OrderDto(
                 savedOrder.getId(),
