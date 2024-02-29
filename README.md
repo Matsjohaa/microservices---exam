@@ -35,14 +35,14 @@ This is an application that is run on a h2 database, therefore when starting the
 - order: POST http://localhost:8082/api/orders
 ```
 {
-  "userId": "1",
+  "userId": 1,
   "orderLineItems": [
     {
-      "productId": "1",
+      "productId": 1,
       "quantity": 2
     },
     {
-      "productId": "2",
+      "productId": 2,
       "quantity": 1
     }
   ]

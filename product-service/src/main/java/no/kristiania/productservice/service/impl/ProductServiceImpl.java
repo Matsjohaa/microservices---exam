@@ -6,7 +6,8 @@ import no.kristiania.productservice.entity.Product;
 import no.kristiania.productservice.repository.ProductRepository;
 import no.kristiania.productservice.service.ProductService;
 import org.springframework.stereotype.Service;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 
@@ -14,6 +15,8 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductServiceImpl  implements ProductService{
     private ProductRepository productRepository;
+
+    private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @Override
     public ProductDto saveProduct(ProductDto productDto) {
@@ -62,8 +65,12 @@ public class ProductServiceImpl  implements ProductService{
     }
 
     public void decreaseQuantity(Long productId, Integer quantity) {
-        Product product = productRepository.findById(productId).orElseThrow();
-        product.setProductStock(product.getProductStock() - quantity);
-        productRepository.save(product);
+        productRepository.findById(productId).ifPresentOrElse(product -> {
+            product.setProductStock(product.getProductStock() - quantity);
+            productRepository.save(product);
+        }, () -> {
+            // Log a warning or handle the case when the product is not found
+            log.warn("Product with ID {} not found, cannot decrease quantity", productId);
+        });
     }
 }
