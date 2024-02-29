@@ -33,7 +33,7 @@ This is an application that is run on a h2 database, therefore when starting the
 ```
 {
   "userId": "1",
-  "orderItems": [
+  "orderLineItems": [
     {
       "productId": "1",
       "quantity": 2
