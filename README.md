@@ -1,5 +1,8 @@
+#Overview
+This is an application that is run on a h2 database, therefore when starting the project, the databases will be empty, and will need a post to each databbase through eg. postman
 
--product: POST http://localhost:8080/api/products
+
+- product: POST http://localhost:8080/api/products
 ```
 {
 "productName": "iphone 15",
@@ -15,7 +18,7 @@
 }
 ```
 
--user: POST http://localhost:8081/api/users
+- user: POST http://localhost:8081/api/users
 
 ```
 {
@@ -26,7 +29,7 @@
 }
 ```
 
--order: POST http://localhost:8082/api/orders
+- order: POST http://localhost:8082/api/orders
 ```
 {
   "userId": "1",
